@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetDIExtension</name>
+    </assembly>
+    <members>
+        <member name="T:NetDIExtension.NetDIExtensionException">
+            <summary>
+            An Exception of NetDIExtension.
+            </summary>
+        </member>
+        <member name="M:NetDIExtension.NetDIExtensionException.#ctor">
+            <summary>
+            Initializes a new instance of the Exception class.
+            </summary>
+        </member>
+        <member name="M:NetDIExtension.NetDIExtensionException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the Exception class with a specified error message.
+            </summary>
+            <param name="message">The error message string.</param>
+        </member>
+        <member name="M:NetDIExtension.NetDIExtensionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the Exception class with a specified error message
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message string.</param>
+            <param name="innerException">The inner exception reference.</param>
+        </member>
+        <member name="T:NetDIExtension.ScopedServiceAttribute">
+            <summary>
+            <para>Represents the class must be registered as ScopedService to DI container.</para>
+            </summary>
+        </member>
+        <member name="M:NetDIExtension.ScopedServiceAttribute.#ctor(System.Boolean)">
+            <summary>
+            Specifies the class to be registered as ScopedService to DI container.
+            </summary>
+            <param name="findService">Specifies whether to register interface with similar name to the class automatically.</param>
+        </member>
+        <member name="M:NetDIExtension.ScopedServiceAttribute.#ctor(System.Type)">
+            <summary>
+            Specifies the class implements <c>serviceType</c> and to be registered as ScopedService to DI container.
+            </summary>
+            <param name="serviceType">Specifies the type to be registered as a service of the class.</param>
+        </member>
+        <member name="T:NetDIExtension.ServiceAttribute">
+            <summary>
+            <para>Represents the class must be registered to DI container.</para>
+            <para>To be more specific, use <see cref="T:NetDIExtension.TransientServiceAttribute"/>, <see cref="T:NetDIExtension.ScopedServiceAttribute"/> and <see cref="T:NetDIExtension.SingletonServiceAttribute"/>.</para>
+            </summary>
+        </member>
+        <member name="P:NetDIExtension.ServiceAttribute.ServiceLifetime">
+            <summary>
+            Represents the lifetime of the instance.
+            </summary>
+        </member>
+        <member name="P:NetDIExtension.ServiceAttribute.ServiceType">
+            <summary>
+            Represents the class annotated with this attribute implements this <see cref="P:NetDIExtension.ServiceAttribute.ServiceType"/>.
+            </summary>
+        </member>
+        <member name="P:NetDIExtension.ServiceAttribute.FindService">
+            <summary>
+            <para>Represents whether to register interface automatically as a service. (default: true) </para>
+            <para>If true, the interface having simillar name to the class will be registered as a service.</para>
+            <para>(e.g. Interface such as "IMyService" or "MyService" will be registered as service when the class is "MyService" or "MyServiceImpl".)</para>
+            <para>If false and <see cref="P:NetDIExtension.ServiceAttribute.ServiceType" /> not given, the class will be registered as both service and implement.</para>
+            </summary>
+        </member>
+        <member name="M:NetDIExtension.ServiceAttribute.#ctor(NetDIExtension.ServiceLifetime,System.Boolean)">
+            <summary>
+            Specifies the class to be registered to DI container.
+            </summary>
+            <param name="serviceLifetime">Lifetime of the class's instance.</param>
+            <param name="findService">Specifies whether to register interface with similar name to the class automatically.</param>
+        </member>
+        <member name="M:NetDIExtension.ServiceAttribute.#ctor(NetDIExtension.ServiceLifetime,System.Type)">
+            <summary>
+            Specifies the class implements <c>serviceType</c> and to be registered to DI container.
+            </summary>
+            <param name="serviceLifetime">Lifetime of the class's instance.</param>
+            <param name="serviceType">Specifies the type to be registered as a service of the class.</param>
+        </member>
+        <member name="T:NetDIExtension.ServiceLifetime">
+            <summary>
+            Represents the lifetime of a service in an DI container.
+            </summary>
+        </member>
+        <member name="F:NetDIExtension.ServiceLifetime.Transient">
+            <summary>
+            Specifies that a new instance of the service will be created every time it is requested.
+            </summary>
+        </member>
+        <member name="F:NetDIExtension.ServiceLifetime.Scoped">
+            <summary>
+            Specifies that a new instance of the service will be created for each scope.
+            </summary>
+        </member>
+        <member name="F:NetDIExtension.ServiceLifetime.Singleton">
+            <summary>
+            Specifies that a single instance of the service will be created.
+            </summary>
+        </member>
+        <member name="T:NetDIExtension.ServiceManager">
+            <summary>
+            A management class of NetDIExtension.
+            </summary>
+        </member>
+        <member name="M:NetDIExtension.ServiceManager.Scan(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Boolean)">
+            <summary>
+            Scans and register services (classes annotated to be registered to DI container).
+            </summary>
+            <param name="services">IServiceCollection for register services.</param>
+            <param name="isDebug">Specifies true if debug output is needed.</param>
+        </member>
+        <member name="T:NetDIExtension.SingletonServiceAttribute">
+            <summary>
+            <para>Represents the class must be registered as SingletonService to DI container.</para>
+            </summary>
+        </member>
+        <member name="M:NetDIExtension.SingletonServiceAttribute.#ctor(System.Boolean)">
+            <summary>
+            Specifies the class to be registered as SingletonService to DI container.
+            </summary>
+            <param name="findService">Specifies whether to register interface with similar name to the class automatically.</param>
+        </member>
+        <member name="M:NetDIExtension.SingletonServiceAttribute.#ctor(System.Type)">
+            <summary>
+            Specifies the class implements <c>serviceType</c> and to be registered as SingletonService to DI container.
+            </summary>
+            <param name="serviceType">Specifies the type to be registered as a service of the class.</param>
+        </member>
+        <member name="T:NetDIExtension.TransientServiceAttribute">
+            <summary>
+            <para>Represents the class must be registered as TransientService to DI container.</para>
+            </summary>
+        </member>
+        <member name="M:NetDIExtension.TransientServiceAttribute.#ctor(System.Boolean)">
+            <summary>
+            Specifies the class to be registered as TransientService to DI container.
+            </summary>
+            <param name="findService">Specifies whether to register interface with similar name to the class automatically.</param>
+        </member>
+        <member name="M:NetDIExtension.TransientServiceAttribute.#ctor(System.Type)">
+            <summary>
+            Specifies the class implements <c>serviceType</c> and to be registered as TransientService to DI container.
+            </summary>
+            <param name="serviceType">Specifies the type to be registered as a service of the class.</param>
+        </member>
+    </members>
+</doc>
