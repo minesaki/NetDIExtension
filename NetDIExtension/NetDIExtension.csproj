@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Naoto Minesaki</Authors>
+    <Description>Extension library for .NET Dependency Injection.</Description>
+    <Copyright>Copyright 2020 Naoto Minesaki</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/minesaki/NetDIExtension</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/minesaki/NetDIExtension.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>di;ioc;extensions;attribute;annotation;dependency;injection;</PackageTags>
+    <Version>1.0.0-beta</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
